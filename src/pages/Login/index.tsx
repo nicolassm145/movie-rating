@@ -1,9 +1,12 @@
+import FooterComponent from "../../components/FooterComponent";
 
 const Login = () => {
   return (
     <div>
-      <h1 className="font-bold text-7xl text-center ">Login</h1>
+      <p className="font-bold text-2xl text-center ">Login</p>
+      <FooterComponent />
     </div>
+    
   );
 };
 export default Login;

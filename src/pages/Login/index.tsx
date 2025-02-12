@@ -1,9 +1,8 @@
 import Logo from "../../components/Logo";
-import FooterComponent from "../../components/FooterComponent";
 
 const Login = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[url('Cover.jpg')] bg-cover bg-center">
+    <div className="min-h-screen flex flex-col bg-[url('/loginBG.jpg')] bg-cover bg-center">
       <div className="flex-1 flex items-center justify-center">
         <div className="w-full max-w-sm lg:max-w-md mx-4 bg-gray-800/90 rounded-xl p-8 shadow-2xl backdrop-blur-sm">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -45,7 +44,7 @@ const Login = () => {
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold text-indigo-400 hover:text-indigo-300"
+                      className="font-semibold text-indigo-400 hover:text-indigo-300 font-roboto-mono"
                     >
                       Forgot password?
                     </a>
@@ -73,11 +72,11 @@ const Login = () => {
               </div>
             </form>
 
-            <p className="mt-8 text-center text-sm text-gray-400">
+            <p className="mt-8 text-center text-sm text-gray-400 font-roboto-mono">
               Not a member?{" "}
               <a
                 href="/register"
-                className="font-semibold text-indigo-400 hover:text-indigo-300"
+                className="font-roboto-mono text-indigo-400 hover:text-indigo-300 "
               >
                 Create an account
               </a>

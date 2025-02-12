@@ -1,13 +1,6 @@
 const Logo = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="192"
-    height="192"
-    viewBox="0 0 192 192"
-    fill="none"
-    className="mx-auto h-20 w-auto"
-  >
-    <circle cx="96" cy="96" r="96" fill="#1D232A" />
+  <svg className="mx-auto h-20 w-auto" viewBox="0 0 192 192" fill="none">
+    <circle cx="96" cy="96" r="96" fill= "" />
     <circle cx="44" cy="96" r="30" fill="#7C05F2" />
     <circle cx="96" cy="96" r="30" fill="#F24738" />
     <path

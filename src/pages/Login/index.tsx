@@ -27,7 +27,7 @@ const Login = () => {
                     name="email"
                     type="email"
                     required
-                    className="w-full px-4 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 font-roboto-mono"
                     autoComplete="email"
                   />
                 </div>
@@ -56,7 +56,7 @@ const Login = () => {
                     name="password"
                     type="password"
                     required
-                    className="w-full px-4 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 font-roboto-mono"
                     autoComplete="current-password"
                   />
                 </div>
@@ -73,12 +73,12 @@ const Login = () => {
             </form>
 
             <p className="mt-8 text-center text-sm text-gray-400 font-roboto-mono">
-              Not a member?{" "}
+            Don&#x27;t have an account yet?{" "}
               <a
                 href="/register"
                 className="font-roboto-mono text-indigo-400 hover:text-indigo-300 "
               >
-                Create an account
+                Sign Up
               </a>
             </p>
           </div>

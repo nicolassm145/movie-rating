@@ -27,7 +27,7 @@ const Register = () => {
                     name="name"
                     type="text"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm font-roboto-mono"
+                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="name"
                   />
                 </div>
@@ -46,7 +46,7 @@ const Register = () => {
                     name="email"
                     type="email"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm font-roboto-mono"
+                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="email"
                   />
                 </div>
@@ -65,7 +65,7 @@ const Register = () => {
                     name="password"
                     type="password"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm font-roboto-mono"
+                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="new-password"
                   />
                 </div>
@@ -84,7 +84,7 @@ const Register = () => {
                     name="confirm-password"
                     type="password"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm font-roboto-mono"
+                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="new-password"
                   />
                 </div>

@@ -10,7 +10,7 @@ interface SystemLayoutProps {
 const SystemLayout = ({ children }: SystemLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-base-100">
-      <header className="sticky top-0 z-50">
+      <header className=" top-0 z-50 bg-base-100/95">
         <HeaderComponent />
       </header>
       <div className="flex-1 flex">
@@ -18,7 +18,7 @@ const SystemLayout = ({ children }: SystemLayoutProps) => {
           {children}
         </main>
       </div>
-      <footer className="sticky bottom-0 z-50">
+      <footer className=" bottom-0 z-50">
         <FooterComponent />
       </footer>
     </div>

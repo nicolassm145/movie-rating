@@ -1,7 +1,7 @@
 const FooterComponent = () => {
   return (
     
-    <footer className="fixed bottom-0 body-font font-robot w-full max-h-12 bg-#1D232A ">
+    <footer className="bottom-0 body-font font-robot w-full max-h-12 bg-#1D232A ">
       <div className="container py-2 flex justify-between mx-auto relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] border-t border-zinc-700"></div>
         <span className="pl-10">

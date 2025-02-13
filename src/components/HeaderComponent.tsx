@@ -12,10 +12,10 @@ import {
   
   const HeaderComponent = () => {
     return (
-      <nav className="bg-base-100 border-b border-neutral">
-        <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
+      <nav className=" border-b border-neutral">
+        <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-10 py-1">
           <a href="/" className="flex items-center space-x-2">
-            <img src="/icon.svg" className="h-8 w-8" alt="Movie-Rating" />
+            <img src="/icon.svg" className="h-10 w-10" alt="Movie-Rating" />
             <span className="self-center text-xl font-bold font-roboto-mono whitespace-nowrap text-white ">
               Movie-Rating
             </span>
@@ -40,11 +40,7 @@ import {
                 <span>Films</span>
               </button>
   
-              <button className="btn btn-ghost btn-sm gap-2 text-gray-300 hover:text-white">
-                <ListBulletIcon className="w-5 h-5" />
-                <span>Lists</span>
-              </button>
-  
+              
               <button className="btn btn-ghost btn-sm gap-2 text-gray-300 hover:text-white">
                 <BoltIcon className="w-5 h-5" />
                 <span>Activity</span>
@@ -76,6 +72,15 @@ import {
                     >
                       <BookmarkIcon className="w-5 h-5 text-gray-300" />
                       Watchlist
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="flex items-center gap-2 p-2 hover:bg-neutral/20"
+                    >
+                      <ListBulletIcon className="w-5 h-5 text-gray-300" />
+                      Lists
                     </a>
                   </li>
                   <li>

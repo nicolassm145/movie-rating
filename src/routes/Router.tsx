@@ -1,30 +1,57 @@
 import { createBrowserRouter } from "react-router-dom";
+import TitleComponent from "../components/TitleComponent";
 import Home from "../pages/Home";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import About from "../pages/About";
 import Profile from "../pages/Profile";
 
+
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />
+        element: (
+            <>
+            <Home />
+            <TitleComponent title="Movie-Rating" />
+            </>
+        ),
     },
-    { 
+    {
         path: "/login",
-        element: <Login />
+        element: (
+            <>
+            <Login />
+            <TitleComponent title="Login" />
+            </>
+        ),
     },
     {
         path: "/register",
-        element: <Register />
+        element: (
+            <>
+            <Register />
+            <TitleComponent title="Register" />
+            </>
+        ),
     },
-    {   
+    {
         path: "/profile",
-        element: <Profile />
+        element: (
+            <>
+            <Profile />
+            <TitleComponent title="Profile" />
+            </>
+        ),
     },
     {
         path: "/about",
-        element: <About />
+        element: (
+            <>
+            <About />
+            <TitleComponent title="About" />
+            </>
+        ),
     },
 ]);
 

@@ -1,6 +1,7 @@
 import Logo from "../../../components/Logo";
 
 const Login = () => {
+
   return (
     <div className="min-h-screen flex flex-col bg-[url('/loginBG.jpg')] bg-cover bg-center">
       <div className="flex-1 flex items-center justify-center">

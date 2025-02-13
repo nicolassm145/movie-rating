@@ -1,9 +1,10 @@
 import Logo from "../../../components/Logo";
 
 const Register = () => {
+  
   return (
     <div className="min-h-screen flex flex-col bg-[url('/registerBG.jpg')] bg-cover bg-center">
-      <div className="flex-1 flex items-center justify-center p-1">
+      <div className="flex-1 flex items-center justify-center ">
         <div className="w-full max-w-sm lg:max-w-md mx-4 bg-gray-800/90 rounded-xl p-6 shadow-2xl backdrop-blur-sm">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <Logo />

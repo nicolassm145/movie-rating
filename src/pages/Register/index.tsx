@@ -7,7 +7,7 @@ const Register = () => {
         <div className="w-full max-w-sm lg:max-w-md mx-4 bg-gray-800/90 rounded-xl p-6 shadow-2xl backdrop-blur-sm">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <Logo />
-            <h2 className="mt-4 text-center text-2xl font-roboto-mono font-bold tracking-tight text-white font-roboto-mono">
+            <h2 className="mt-2 text-center text-2xl font-roboto-mono font-bold tracking-tight text-white">
               Create a new account
             </h2>
           </div>
@@ -27,7 +27,7 @@ const Register = () => {
                     name="name"
                     type="text"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
+                    className="w-full px-3 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="name"
                   />
                 </div>
@@ -46,7 +46,7 @@ const Register = () => {
                     name="email"
                     type="email"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
+                    className="w-full px-3 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="email"
                   />
                 </div>
@@ -65,7 +65,7 @@ const Register = () => {
                     name="password"
                     type="password"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
+                    className="w-full px-3 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="new-password"
                   />
                 </div>
@@ -84,7 +84,7 @@ const Register = () => {
                     name="confirm-password"
                     type="password"
                     required
-                    className="w-full px-3 py-1.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
+                    className="w-full px-3 py-2 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-gray-400 text-sm font-roboto-mono"
                     autoComplete="new-password"
                   />
                 </div>
@@ -93,14 +93,14 @@ const Register = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-1.5 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm font-roboto-mono"
+                  className="w-full flex justify-center py-2 px-3 rounded-lg bg-indigo-600  hover:bg-indigo-700 text-white font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm font-roboto-mono"
                 >
                   Sign up
                 </button>
               </div>
             </form>
 
-            <p className="mt-6 text-center text-sm text-gray-400 font-roboto-mono">
+            <p className="mt-5 text-center text-sm text-gray-400 font-roboto-mono">
               Already have an account?{" "}
               <a
                 href="/login"

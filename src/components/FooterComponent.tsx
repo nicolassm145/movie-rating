@@ -4,25 +4,18 @@ const FooterComponent = () => {
     <footer className="fixed bottom-0 body-font font-robot w-full max-h-12 bg-#1D232A ">
       <div className="container py-2 flex justify-between mx-auto relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] border-t border-zinc-700"></div>
-    
-        {/* Seção About (esquerda) */}
         <span className="pl-10">
           <a 
             href="/about"  
-            className="text-sm text-gray-500 hover:text-white transition-all duration-500"
+            className="text-sm text-gray-500 hover:text-white transition-all duration-500 font-roboto-mono"
           >
             About
           </a>
         </span>
-
-        {/* Nome centralizado */}
-        <span className="absolute left-1/2 -translate-x-1/2 text-sm text-gray-500">
+        <span className="absolute left-1/2 -translate-x-1/2 text-sm text-gray-500 font-roboto-mono">
           © 2025 Nícolas de Souza
         </span>
-
-        {/* Seção Direita (ícones) */}
         <span className="inline-flex items-center pr-10">
-          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/nicolassm145/"
             target="_blank"
@@ -42,8 +35,6 @@ const FooterComponent = () => {
               <circle cx="4" cy="4" r="2" stroke="none"></circle>
             </svg>
           </a>
-
-          {/* GitHub */}
           <a
             href="https://github.com/nicolassm145"
             target="_blank"

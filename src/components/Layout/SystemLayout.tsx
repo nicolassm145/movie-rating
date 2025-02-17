@@ -14,9 +14,7 @@ const SystemLayout = ({ children }: SystemLayoutProps) => {
         <HeaderComponent />
       </header>
       <div className="flex-1 flex">
-        <main className="flex-1 p-6 overflow-auto">
-          {children}
-        </main>
+        <main className="flex-1 p-6 overflow-auto">{children}</main>
       </div>
       <footer className=" bottom-0 z-50">
         <FooterComponent />

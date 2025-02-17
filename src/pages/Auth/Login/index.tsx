@@ -1,7 +1,6 @@
 import Logo from "../../../components/Logo";
 
 const Login = () => {
-
   return (
     <div className="min-h-screen flex flex-col bg-[url('/loginBG.jpg')] bg-cover bg-center">
       <div className="flex-1 flex items-center justify-center">
@@ -74,7 +73,7 @@ const Login = () => {
             </form>
 
             <p className="mt-8 text-center text-sm text-gray-400 font-roboto-mono">
-            Don&#x27;t have an account yet?{" "}
+              Don&#x27;t have an account yet?{" "}
               <a
                 href="/register"
                 className="font-roboto-mono text-indigo-400 hover:text-indigo-300 "

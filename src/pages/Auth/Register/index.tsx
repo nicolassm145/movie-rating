@@ -1,7 +1,6 @@
 import Logo from "../../../components/Logo";
 
 const Register = () => {
-  
   return (
     <div className="min-h-screen flex flex-col bg-[url('/registerBG.jpg')] bg-cover bg-center">
       <div className="flex-1 flex items-center justify-center ">

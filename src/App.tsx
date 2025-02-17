@@ -3,11 +3,10 @@ import router from "./routes/Router";
 
 function App() {
   return (
-    
     <div>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

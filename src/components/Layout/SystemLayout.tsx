@@ -1,4 +1,3 @@
-// components/layouts/SystemLayout.tsx
 import { ReactNode } from "react";
 import HeaderComponent from "../HeaderComponent";
 import FooterComponent from "../FooterComponent";
@@ -9,14 +8,16 @@ interface SystemLayoutProps {
 
 const SystemLayout = ({ children }: SystemLayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col bg-base-100">
-      <header className=" top-0 z-50 bg-base-100/95">
+    <div className="min-h-screen flex flex-col">
+      <header className="top-0 z-50 bg-transparent backdrop-blur-sm">
         <HeaderComponent />
       </header>
-      <div className="flex-1 flex">
-        <main className="flex-1 p-6 overflow-auto">{children}</main>
-      </div>
-      <footer className=" bottom-0 z-50">
+      
+      <main className="flex-1">
+        {children}
+      </main>
+
+      <footer className="mt-auto border-t border-base-300/30">
         <FooterComponent />
       </footer>
     </div>

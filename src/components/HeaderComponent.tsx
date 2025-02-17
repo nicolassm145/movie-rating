@@ -1,28 +1,20 @@
-import {
-  FilmIcon,
-  ListBulletIcon,
-  UserIcon,
-  BoltIcon,
-  CalendarDaysIcon,
-  BookmarkIcon,
-  Cog6ToothIcon,
-  ArrowRightStartOnRectangleIcon,
-} from "@heroicons/react/24/outline";
+import {FilmIcon, ListBulletIcon, UserIcon, BoltIcon, CalendarDaysIcon, BookmarkIcon, Cog6ToothIcon, ArrowRightStartOnRectangleIcon} from "@heroicons/react/24/outline";
 import SearchBarComponent from "./SearchBarComponent";
 import { useNavigate } from "react-router-dom";
+
 
 const HeaderComponent = () => {
   const navigate = useNavigate();
 
   const handleSearch = (query: string) => {
-    console.log("Search term:", query);
+    console.log('Search term:', query);
     if (query) {
       navigate(`/search?query=${encodeURIComponent(query)}`);
     }
   };
 
   return (
-    <nav className=" border-b border-neutral">
+    <nav className="bg-transparent">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-10 py-1">
         <a href="/" className="flex items-center space-x-2">
           <img src="/icon.svg" className="h-10 w-10" alt="Movie-Rating" />
@@ -32,14 +24,15 @@ const HeaderComponent = () => {
         </a>
 
         <SearchBarComponent onSearch={handleSearch} />
-
-        <div className="flex items-center gap-4 font-roboto-mono">
+        
+        <div className="flex items-center gap-4 font-roboto-mono ">
           <div className="hidden md:flex items-center gap-4">
             <button className="btn btn-ghost btn-sm gap-2 text-gray-300 hover:text-white">
               <FilmIcon className="w-5 h-5" />
               <span>Films</span>
             </button>
 
+            
             <button className="btn btn-ghost btn-sm gap-2 text-gray-300 hover:text-white">
               <BoltIcon className="w-5 h-5" />
               <span>Activity</span>

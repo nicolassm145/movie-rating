@@ -40,9 +40,8 @@ const MovieDetails = () => {
       </div>
     );
 
-  const directors =
-    credits?.crew.filter((member) => member.job === "Director") || [];
-  const mainCast = credits?.cast.slice(0, 10) || [];
+  const directors = credits?.crew.filter((member) => member.job === "Director") || [];
+  const mainCast = credits?.cast.slice(0, 50) || [];
 
   return (
     <SystemLayout>
@@ -60,34 +59,39 @@ const MovieDetails = () => {
         {/* Conteúdo sobre o backdrop */}
         <div className="container mx-auto px-6 relative h-full flex items-end pb-8">
           <div className="max-w-4xl">
-            <h1 className="text-4xl font-bold mb-2 text-white">
+            <h1 className="text-4xl font-bold mb-2 text-white text-shadow">
               {movie.title} ({movie.release_date?.split("-")[0]})
             </h1>
             <div className="flex items-center gap-4 text-lg text-white/80">
-              {movie.genres?.map(genre => (
-                <span key={genre.id} className="badge badge-outline badge-sm border-white/30 text-white">
+              {movie.genres?.map((genre) => (
+                <span
+                  key={genre.id}
+                  className="badge badge-outline badge-sm border-white/50 text-white"
+                >
                   {genre.name}
                 </span>
               ))}
               <span className="text-white/60">•</span>
-              <span className="text-white/80">{movie.runtime ? formatRuntime(movie.runtime) : 'N/A'}</span>
+              <span className="text-white/80">
+                {movie.runtime ? formatRuntime(movie.runtime) : "N/A"}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Conteúdo Principal */}
-      <div className="container mx-auto px-4 mt-8">
+      <div className="container mx-auto px-10">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Coluna Esquerda (Poster) */}
-          <div className="w-full md:w-1/3">
+          <div className="w-10 md:w-1/4">
             <img
-              src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt={movie.title}
               className="w-full rounded-xl shadow-lg"
             />
 
-            <div className="mt-6 space-y-4">
+            <div className="mt-10 space-y-4">
               <div>
                 <h3 className="font-bold text-lg mb-2">Directed by</h3>
                 {directors.map((director) => (
@@ -118,12 +122,29 @@ const MovieDetails = () => {
                   </p>
                   <p>
                     <span className="font-semibold">Release Date:</span>{" "}
-                    {new Date(movie.release_date).toLocaleDateString()}
+                    {movie.release_date
+                      ? new Date(movie.release_date).toLocaleDateString()
+                      : "N/A"}
                   </p>
                   <p>
                     <span className="font-semibold">Original Language:</span>{" "}
                     {movie.original_language?.toUpperCase()}
                   </p>
+                </div>
+              </div>
+
+              <div className="divider" />
+              <div className="iten-center">
+                <div className="stats bg-base-200 shadow text-center ">
+                  <div className="stat">
+                    <div className="stat-title font-bold">TMDB Rating</div>
+                    <div className="stat-value text-primary">
+                      {movie.vote_average?.toFixed(2)}
+                    </div>
+                    <div className="stat-desc text-sm text-gray-400 ">
+                      {movie.vote_count?.toLocaleString()} votes
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -133,56 +154,18 @@ const MovieDetails = () => {
           <div className="flex-1">
             {/* Tagline and Overview */}
             {movie.tagline && (
-              <p className="text-xl italic text-gray-400 mb-6">
-                "{movie.tagline}"
+              <p className="text-xl italic font-bold text-gray-400 mb-4">
+                {movie.tagline}
               </p>
             )}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
+            <div className="mb-20">
               <p className="leading-relaxed">{movie.overview}</p>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              <div className="stats bg-base-200 shadow">
-                <div className="stat">
-                  <div className="stat-title">TMDB Rating</div>
-                  <div className="stat-value text-primary">
-                    {movie.vote_average?.toFixed(1)}
-                  </div>
-                  <div className="stat-desc">
-                    {movie.vote_count?.toLocaleString()} votes
-                  </div>
-                </div>
-              </div>
-
-              {movie.budget > 0 && (
-                <div className="stats bg-base-200 shadow">
-                  <div className="stat">
-                    <div className="stat-title">Budget</div>
-                    <div className="stat-value">
-                      ${movie.budget?.toLocaleString()}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {movie.revenue > 0 && (
-                <div className="stats bg-base-200 shadow">
-                  <div className="stat">
-                    <div className="stat-title">Revenue</div>
-                    <div className="stat-value">
-                      ${movie.revenue?.toLocaleString()}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
             {/* Cast */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-6">Top Cast</h2>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="mb-20">
+              <h2 className="text-2xl font-bold mb-6">Cast:</h2>
+              <div className="grid grid-cols-2 md:grid-cols-8 gap-5">
                 {mainCast.map((actor) => (
                   <div key={actor.id} className="text-center group">
                     <div className="relative overflow-hidden rounded-xl aspect-[2/3]">
@@ -205,6 +188,30 @@ const MovieDetails = () => {
                   </div>
                 ))}
               </div>
+            </div>
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-center">
+              {(movie.budget ?? 0) > 0 && (
+                <div className="stats bg-base-200 shadow">
+                  <div className="stat">
+                    <div className="stat-title">Budget</div>
+                    <div className="stat-value">
+                      ${movie.budget?.toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {(movie.revenue ?? 0) > 0 && (
+                <div className="stats bg-base-200 shadow">
+                  <div className="stat">
+                    <div className="stat-title">Revenue</div>
+                    <div className="stat-value">
+                      ${movie.revenue?.toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

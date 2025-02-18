@@ -14,10 +14,10 @@ const HeaderComponent = () => {
   };
 
   return (
-    <nav className="bg-transparent">
+    <nav className="bg-transparent focus:bg-opacity-20 backdrop-blur-sm">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-10 py-1">
         <a href="/" className="flex items-center space-x-2">
-          <img src="/icon.svg" className="h-10 w-10" alt="Movie-Rating" />
+          <img src="/icon.svg" className="h-10 w-10 " alt="Movie-Rating" />
           <span className="self-center text-xl font-bold font-roboto-mono whitespace-nowrap text-white ">
             Movie-Rating
           </span>

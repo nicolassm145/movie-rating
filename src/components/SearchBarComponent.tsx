@@ -25,7 +25,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search films..."
-            className="input input-sm w-full pl-10 bg-opacity-20 bg-gray-500 focus:bg-opacity-30 transition-all border-none rounded-full placeholder:text-gray-400 font-roboto-mono"
+            className="input input-sm w-full pl-10 bg-opacity-20 bg-gray-500 focus:bg-opacity-70 transition-all border-none rounded-full placeholder:text-gray-400 font-roboto-mono"
           />
         </form>
       </div>

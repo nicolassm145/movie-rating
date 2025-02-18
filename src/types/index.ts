@@ -1,7 +1,12 @@
+import { ReactNode } from "react";
+
 export interface Movie {
+  original_language: any;
+  status: ReactNode;
+  vote_count: any;
   id: number;
   title: string;
-  poster_path?: string;
+  poster_path: string;
   release_date?: string;
   tagline?: string;
   overview?: string;

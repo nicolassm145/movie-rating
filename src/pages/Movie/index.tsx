@@ -2,11 +2,15 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Movie, Credits } from "../../types";
 import SystemLayout from "../../components/Layout/SystemLayout";
+import StarRating from "../../components/MoviePage/StarComponent";
+import { Cast } from "../../components/MoviePage/CastComponent";
+import { MovieSidebar } from "../../components/MoviePage/DetailsComponent";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<Movie | null>(null);
   const [credits, setCredits] = useState<Credits | null>(null);
+  const [rating, setRating] = useState<number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,15 +37,14 @@ const MovieDetails = () => {
     return `${hours}h ${remainingMinutes}m`;
   };
 
-  if (!movie)
+  if (!movie || !credits)
     return (
       <div className="min-h-screen flex items-center justify-center">
         Loading...
       </div>
     );
 
-  const directors = credits?.crew.filter((member) => member.job === "Director") || [];
-  const mainCast = credits?.cast.slice(0, 50) || [];
+  const mainCast = credits.cast.slice(0, 5);
 
   return (
     <SystemLayout>
@@ -55,142 +58,53 @@ const MovieDetails = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-100/60 to-base-100" />
         </div>
-
-        {/* Conteúdo sobre o backdrop */}
-        <div className="container mx-auto px-6 relative h-full flex items-end pb-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-bold mb-2 text-white text-shadow">
-              {movie.title} ({movie.release_date?.split("-")[0]})
-            </h1>
-            <div className="flex items-center gap-4 text-lg text-white/80">
-              {movie.genres?.map((genre) => (
-                <span
-                  key={genre.id}
-                  className="badge badge-outline badge-sm border-white/50 text-white"
-                >
-                  {genre.name}
-                </span>
-              ))}
-              <span className="text-white/60">•</span>
-              <span className="text-white/80">
-                {movie.runtime ? formatRuntime(movie.runtime) : "N/A"}
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Conteúdo Principal */}
       <div className="container mx-auto px-10">
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Coluna Esquerda (Poster) */}
-          <div className="w-10 md:w-1/4">
-            <img
-              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              alt={movie.title}
-              className="w-full rounded-xl shadow-lg"
-            />
+          {/* Sidebar com informações do filme */}
+          <MovieSidebar movie={movie} credits={credits} />
 
-            <div className="mt-10 space-y-4">
-              <div>
-                <h3 className="font-bold text-lg mb-2">Directed by</h3>
-                {directors.map((director) => (
-                  <div
-                    key={director.id}
-                    className="flex items-center gap-3 mb-3"
-                  >
-                    {director.profile_path && (
-                      <img
-                        src={`https://image.tmdb.org/t/p/w200${director.profile_path}`}
-                        alt={director.name}
-                        className="w-10 h-10 rounded-full object-cover"
-                      />
-                    )}
-                    <span className="font-medium">{director.name}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="divider" />
-
-              <div>
-                <h3 className="font-bold text-lg mb-2">Details</h3>
-                <div className="space-y-2">
-                  <p>
-                    <span className="font-semibold">Status:</span>{" "}
-                    {movie.status}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Release Date:</span>{" "}
-                    {movie.release_date
-                      ? new Date(movie.release_date).toLocaleDateString()
-                      : "N/A"}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Original Language:</span>{" "}
-                    {movie.original_language?.toUpperCase()}
-                  </p>
+          {/* Conteúdo Central */}
+          <div className="flex-1 py-5">
+            {/* Nova seção de título acima do overview */}
+            <div className="mb-8">
+              <h1 className="text-4xl font-bold mb-2">
+                {movie.title} ({movie.release_date?.split("-")[0]})
+              </h1>
+              <div className="flex items-center gap-3 flex-wrap">
+                <div className="flex items-center gap-2">
+                  {movie.genres?.map((genre) => (
+                    <span
+                      key={genre.id}
+                      className="badge badge-outline badge-sm border-gray-400"
+                    >
+                      {genre.name}
+                    </span>
+                  ))}
                 </div>
-              </div>
-
-              <div className="divider" />
-              <div className="iten-center">
-                <div className="stats bg-base-200 shadow text-center ">
-                  <div className="stat">
-                    <div className="stat-title font-bold">TMDB Rating</div>
-                    <div className="stat-value text-primary">
-                      {movie.vote_average?.toFixed(2)}
-                    </div>
-                    <div className="stat-desc text-sm text-gray-400 ">
-                      {movie.vote_count?.toLocaleString()} votes
-                    </div>
-                  </div>
-                </div>
+                <span className="text-gray-400">•</span>
+                <span className="text-gray-400">
+                  {movie.runtime ? formatRuntime(movie.runtime) : "N/A"}
+                </span>
               </div>
             </div>
-          </div>
 
-          {/* Right Column */}
-          <div className="flex-1">
-            {/* Tagline and Overview */}
             {movie.tagline && (
               <p className="text-xl italic font-bold text-gray-400 mb-4">
                 {movie.tagline}
               </p>
             )}
+
             <div className="mb-20">
-              <p className="leading-relaxed">{movie.overview}</p>
+              <p className="leading-relaxed text-gray-400">{movie.overview}</p>
             </div>
 
-            {/* Cast */}
-            <div className="mb-20">
-              <h2 className="text-2xl font-bold mb-6">Cast:</h2>
-              <div className="grid grid-cols-2 md:grid-cols-8 gap-5">
-                {mainCast.map((actor) => (
-                  <div key={actor.id} className="text-center group">
-                    <div className="relative overflow-hidden rounded-xl aspect-[2/3]">
-                      <img
-                        src={
-                          actor.profile_path
-                            ? `https://image.tmdb.org/t/p/w276_and_h350_face${actor.profile_path}`
-                            : "/placeholder-avatar.jpg"
-                        }
-                        alt={actor.name}
-                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="mt-2">
-                      <p className="font-bold truncate">{actor.name}</p>
-                      <p className="text-sm text-gray-400 truncate">
-                        {actor.character}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-center">
+            <Cast cast={mainCast} />
+
+            {/* Estatísticas Financeiras (mantido caso queira reativar) */}
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-center">
               {(movie.budget ?? 0) > 0 && (
                 <div className="stats bg-base-200 shadow">
                   <div className="stat">
@@ -201,7 +115,6 @@ const MovieDetails = () => {
                   </div>
                 </div>
               )}
-
               {(movie.revenue ?? 0) > 0 && (
                 <div className="stats bg-base-200 shadow">
                   <div className="stat">
@@ -212,7 +125,14 @@ const MovieDetails = () => {
                   </div>
                 </div>
               )}
-            </div>
+            </div> */}
+          </div>
+
+          {/* Seção de Avaliação */}
+          <div className="w-full md:w-1/4 flex flex-col items-center justify-start py-24">
+            <h2 className="text-2xl font-bold mb-4">Avalie</h2>
+            <StarRating rating={rating} setRating={setRating} />
+            <p className="mt-4 text-gray-600">Sua avaliação</p>
           </div>
         </div>
       </div>

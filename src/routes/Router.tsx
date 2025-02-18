@@ -7,6 +7,7 @@ import About from "../pages/About";
 import Profile from "../pages/Profile";
 import SearchPage from "../pages/Search";
 import MovieDetails from "../pages/Movie";
+import ActorPage from "../pages/Actor";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,15 @@ const router = createBrowserRouter([
       </>
     ),
   },
+  {
+    path: "/actor/:id",
+    element: (
+      <>
+        <ActorPage />
+        <TitleComponent title="Actor Details" />
+      </>
+    ),
+  }
 ]);
 
 export default router;

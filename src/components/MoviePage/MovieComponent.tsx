@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Movie } from "../types";
+import { Movie } from "../../types";
 
 const MovieComponent = ({ movie }: { movie: Movie }) => {
   return (

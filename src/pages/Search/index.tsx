@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Movie } from "../../types";
-import MovieComponent from "../../components/MovieComponent";
+import MovieComponent from "../../components/MoviePage/MovieComponent";
 import SystemLayout from "../../components/Layout/SystemLayout";
 
 const SearchPage = () => {

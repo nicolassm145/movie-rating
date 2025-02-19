@@ -107,7 +107,7 @@ const MovieDetails = () => {
               <StarRating rating={rating} setRating={setRating} />
               <p className="mt-4 text-gray-600">Sua avaliação</p>
             </div>
-            <div className="bg-base-200 p-4 rounded text-center">
+            <div className=" p-4 rounded text-center">
               <TMDBRating movie={movie} />
             </div>
           </div>

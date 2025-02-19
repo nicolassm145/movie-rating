@@ -5,7 +5,7 @@ import SystemLayout from "../../components/Layout/SystemLayout";
 import StarRating from "../../components/MoviePage/StarComponent";
 import { MovieSidebar } from "../../components/MoviePage/DetailsComponent";
 import { Cast } from "../../components/MoviePage/CastComponent";
-import TMDBRating from "../../components/MoviePage/TmdbComponent";
+import TMDBRating from "../../components/MoviePage/TMDBComponent";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -37,12 +37,13 @@ const MovieDetails = () => {
     return `${hours}h ${remainingMinutes}m`;
   };
 
-  if (!movie || !credits)
+  if (!movie || !credits) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         Loading...
       </div>
     );
+  }
 
   return (
     <SystemLayout>
@@ -54,20 +55,21 @@ const MovieDetails = () => {
             alt={movie.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-100/70 to-base-100 to-" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-100/70 to-base-100" />
         </div>
       </div>
 
       {/* Conteúdo Principal */}
-      <div className="container mx-auto px-10">
-        <div className="flex gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-8">
+        {/* Em desktop (md para cima) usamos grid com colunas fixas; em mobile, empilhamos */}
+        <div className="grid grid-cols-1 md:grid-cols-[300px_600px_250px] gap-8">
           {/* Coluna 1: Poster, diretor e detalhes */}
-          <div className="flex-none w-[300px] mb-10">
+          <div>
             <MovieSidebar movie={movie} credits={credits} />
           </div>
 
           {/* Coluna 2: Título, gêneros, tagline, overview e cast */}
-          <div className="flex-none w-[600px]">
+          <div>
             <div className="mb-6">
               <h1 className="text-4xl font-bold">
                 {movie.title} ({movie.release_date?.split("-")[0]})
@@ -99,7 +101,7 @@ const MovieDetails = () => {
           </div>
 
           {/* Coluna 3: Avaliação do usuário e nota do TMDB */}
-          <div className="flex-none w-[250px] flex flex-col gap-6 mt-20">
+          <div className="flex flex-col gap-6 mt-10 md:mt-20">
             <div className="bg-base-200 p-4 rounded text-center">
               <h2 className="text-2xl font-bold mb-4">Avalie</h2>
               <StarRating rating={rating} setRating={setRating} />
@@ -107,7 +109,6 @@ const MovieDetails = () => {
             </div>
             <div className="bg-base-200 p-4 rounded text-center">
               <TMDBRating movie={movie} />
-            
             </div>
           </div>
         </div>

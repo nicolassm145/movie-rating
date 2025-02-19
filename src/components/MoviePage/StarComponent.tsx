@@ -3,7 +3,6 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import { StarIcon as StarOutlineIcon } from "@heroicons/react/24/outline";
 import { StarRatingProps } from "../../types";
 
-
 const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
   const [hoverRating, setHoverRating] = useState<number>(0);
 
@@ -28,7 +27,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
   };
 
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1 ">
       {[1, 2, 3, 4, 5].map((starValue) => {
         const current = hoverRating || rating;
         return (
@@ -37,7 +36,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
             onMouseMove={(e) => handleMouseMove(e, starValue)}
             onClick={(e) => handleClick(e, starValue)}
             onMouseLeave={() => setHoverRating(0)}
-            className="cursor-pointer relative"
+            className="cursor-pointer relative item-center"
           >
             {current >= starValue ? (
               <StarIcon className="h-8 w-8 text-yellow-500" />
@@ -54,7 +53,6 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
           </div>
         );
       })}
-      <span className="ml-2 font-bold">{rating.toFixed(1)}</span>
     </div>
   );
 };

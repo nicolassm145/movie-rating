@@ -30,8 +30,8 @@ const SearchPage = () => {
   return (
     <SystemLayout>
       <div className="container mx-auto p-4">
-        <h2 className="text-2xl font-bold mb-4">Results for: {query}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <h2 className="text-2xl font-bold mb-4 px-1">Results for: {query}</h2>
+        <div className="p-4 w-50 px-10">
           {movies.map((movie) => (
             <MovieComponent key={movie.id} movie={movie} />
           ))}

@@ -6,6 +6,7 @@ import StarRating from "../../components/MoviePage/StarComponent";
 import { MovieSidebar } from "../../components/MoviePage/DetailsComponent";
 import { Cast } from "../../components/MoviePage/CastComponent";
 import TMDBRating from "../../components/MoviePage/TMDBComponent";
+import MovieComponent from "../../components/MoviePage/MovieComponent";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -102,10 +103,9 @@ const MovieDetails = () => {
 
           {/* Coluna 3: Avaliação do usuário e nota do TMDB */}
           <div className="flex flex-col gap-6 mt-10 md:mt-20">
-            <div className="bg-base-200 p-4 rounded text-center">
+            <div className="bg-base-200 p-10 rounded text-center">
               <h2 className="text-2xl font-bold mb-4">Avalie</h2>
-              <StarRating rating={rating} setRating={setRating} />
-              <p className="mt-4 text-gray-600">Sua avaliação</p>
+              <StarRating rating={rating} setRating={setRating}/>
             </div>
             <div className=" p-4 rounded text-center">
               <TMDBRating movie={movie} />

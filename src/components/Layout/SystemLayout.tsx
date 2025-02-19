@@ -9,7 +9,7 @@ interface SystemLayoutProps {
 const SystemLayout = ({ children }: SystemLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="top-0 z-50 bg-transparent backdrop-blur-sm">
+      <header className="top-0 z-50 backdrop-blur-sm">
         <HeaderComponent />
       </header>
       

@@ -1,4 +1,3 @@
-// components/MovieSidebar.tsx
 import { Movie, Credits } from "../../types";
 
 interface MovieSidebarProps {
@@ -49,38 +48,24 @@ const MovieDetails = ({ movie }: { movie: Movie }) => (
   </div>
 );
 
-const TMDBRating = ({ movie }: { movie: Movie }) => (
-  <div className="stats bg-base-200 shadow text-center">
-    <div className="stat">
-      <div className="stat-title font-bold">TMDB Rating</div>
-      <div className="stat-value text-primary">
-        {movie.vote_average?.toFixed(2)}
-      </div>
-      <div className="stat-desc text-sm text-gray-400">
-        {movie.vote_count?.toLocaleString()} votes
-      </div>
-    </div>
-  </div>
-);
+
 
 export const MovieSidebar = ({ movie, credits }: MovieSidebarProps) => (
-  <div className="w-full md:w-1/4">
+  <div className="w-full ">
     <img
       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
       alt={movie.title}
       className="w-full rounded-xl shadow-lg"
     />
     
-    <div className="mt-10 space-y-4">
+    <div className="mt-10 space-y-4 mb-10">
       <DirectedBy credits={credits} />
       
       <div className="divider" />
       
       <MovieDetails movie={movie} />
       
-      <div className="divider" />
-      
-      <TMDBRating movie={movie} />
+    
     </div>
   </div>
 );

@@ -1,9 +1,8 @@
 const FooterComponent = () => {
   return (
-    <footer className="bottom-0 body-font font-robot w-full max-h-12 bg-#1D232A ">
+    <footer className="bottom-0 body-font font-robot w-full max-h-12 px-36">
       <div className="container py-2 flex justify-between mx-auto relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] border-t border-zinc-700"></div>
-        <span className="pl-10">
+        <span >
           <a
             href="/about"
             className="text-sm text-gray-500 hover:text-white transition-all duration-500 font-roboto-mono"
@@ -12,9 +11,9 @@ const FooterComponent = () => {
           </a>
         </span>
         <span className="absolute left-1/2 -translate-x-1/2 text-sm text-gray-500 font-roboto-mono">
-          © 2025 Nícolas de Souza
+          © 2025 Nícolas
         </span>
-        <span className="inline-flex items-center pr-10">
+        <span className="inline-flex items-center ">
           <a
             href="https://www.linkedin.com/in/nicolassm145/"
             target="_blank"

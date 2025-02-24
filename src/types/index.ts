@@ -68,6 +68,7 @@ export interface MovieCredit {
   id: number;
   credit_id: string;
   title: string;
+  job?: string;
   character: string;
   poster_path: string | null;
   release_date: string;

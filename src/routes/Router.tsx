@@ -8,6 +8,8 @@ import Profile from "../pages/Profile";
 import SearchPage from "../pages/Search";
 import MovieDetails from "../pages/Movie";
 import ActorPage from "../pages/Actor";
+import DirectorPage from "../pages/Director";
+import YearPage from "../pages/Year";
 
 const router = createBrowserRouter([
   {
@@ -69,7 +71,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <MovieDetails />
-        <TitleComponent title="Movie Details" />
+        <TitleComponent title="Movie" />
       </>
     ),
   },
@@ -78,10 +80,28 @@ const router = createBrowserRouter([
     element: (
       <>
         <ActorPage />
-        <TitleComponent title="Actor Details" />
+        <TitleComponent title="Actor" />
       </>
     ),
-  }
+  },
+  {
+    path: "/director/:id",
+    element: (  
+      <>
+        <DirectorPage />
+        <TitleComponent title="Director" />
+      </>
+    ),
+  },
+  {	
+    path: "/year/:year",
+    element: (
+      <>
+        <YearPage />
+        <TitleComponent title="Year" />
+      </>
+    ),
+  },
 ]);
 
 export default router;

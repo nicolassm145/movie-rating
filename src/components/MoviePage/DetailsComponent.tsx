@@ -16,11 +16,14 @@ const DirectedBy = ({ credits }: { credits: Credits }) => {
       {directors.map((director) => (
         <div key={director.id} className="flex items-center gap-3 mb-3">
           {director.profile_path && (
-            <img
-              src={`https://image.tmdb.org/t/p/w200${director.profile_path}`}
-              alt={director.name}
-              className="w-10 h-10 rounded-full object-cover"
-            />
+            <a href={`/director/${director.id}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/w200${director.profile_path}`}
+                alt={director.name}
+                className="w-10 h-10 rounded-full object-cover"
+              />
+            </a>
+             
           )}
           <span className="font-medium">{director.name}</span>
         </div>

@@ -1,6 +1,13 @@
 import { ReactNode } from "react";
 
-export interface Movie {
+export interface MediaBase {
+  id: number
+  poster_path: string
+  vote_average?: number
+  media_type?: 'movie' | 'tv'
+}
+
+export interface Movie extends MediaBase {
   original_language: any;
   status: ReactNode;
   vote_count: any;
@@ -18,6 +25,21 @@ export interface Movie {
   runtime?: number;
   credits?: Credits;
 }
+
+export interface TVShow extends MediaBase {
+  name: string
+  first_air_date?: string
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date?: string;
+  tagline?: string;
+  overview?: string;
+  vote_average?: number;
+  backdrop_path?: string;
+}
+
+export type Media = Movie | TVShow
 
 export interface Credits {
   cast: CastMember[];

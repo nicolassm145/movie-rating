@@ -6,8 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       fontFamily: {
         'roboto-mono': ['"Roboto Mono"', 'monospace'],
+        'roboto': ['"Roboto"', 'sans-serif'],
       },
       colors: {
         'custom-purple': '#7C05F2',

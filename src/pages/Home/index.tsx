@@ -9,7 +9,7 @@ const Home = () => {
         <div className="relative p-6 px-36">
           <div className="flex justify-between items-center pt-32">
             <h1 className="font-roboto font-bold text-white text-xl">Trending Movies</h1>
-            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">
+            <a href="/films" className="text-white text-sm hover:text-gray-300 transition-colors">
               See all &gt;
             </a>
           </div>

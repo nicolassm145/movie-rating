@@ -1,6 +1,6 @@
 import SystemLayout from "../../components/Layout/SystemLayout";
 
-const Profile = () => {
+const ProfilePage = () => {
   return (
     <SystemLayout>
       <div className="p-6">
@@ -11,4 +11,4 @@ const Profile = () => {
     </SystemLayout>
   );
 };
-export default Profile;
+export default ProfilePage;

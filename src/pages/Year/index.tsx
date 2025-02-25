@@ -1,8 +1,7 @@
-// pages/YearPage.tsx
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Movie } from "../types";
-import MovieComponent from "../../components/MoviePage/MovieComponent";
+import { Movie } from "../../types";
+import MovieComponent from "../../components/SearchComponent";
 import SystemLayout from "../../components/Layout/SystemLayout";
 
 const YearPage = () => {
@@ -43,7 +42,7 @@ const YearPage = () => {
       }
     };
 
-    if (year && parseInt(year) > 1874) { // Primeiro filme foi em 1878
+    if (year && parseInt(year) > 1874) { 
       fetchMoviesByYear();
     }
   }, [year, currentPage]);

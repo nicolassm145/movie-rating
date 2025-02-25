@@ -1,4 +1,5 @@
 import { MovieCredit } from "../../types";
+import { Link } from "react-router-dom";
 
 interface PersonLayoutProps {
   name: string;
@@ -11,18 +12,10 @@ interface PersonLayoutProps {
   children?: React.ReactNode;
 }
 
-const PersonLayout = ({
-  name,
-  profilePath,
-  birthday,
-  deathday,
-  placeOfBirth,
-  biography,
-  credits,
-  children,
+const PersonLayout = ({ name, profilePath, birthday, deathday, placeOfBirth, biography, credits, children,
 }: PersonLayoutProps) => {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-36 py-8">
       {/* Cabeçalho */}
       <div className="flex flex-col md:flex-row gap-8 mb-8">
         <div className="w-full md:w-1/4">
@@ -36,7 +29,7 @@ const PersonLayout = ({
             className="rounded-lg shadow-lg"
           />
         </div>
-        
+
         <div className="flex-1">
           <h1 className="text-4xl font-bold mb-4">{name}</h1>
           <div className="space-y-2">
@@ -54,13 +47,10 @@ const PersonLayout = ({
               </p>
             )}
           </div>
-          
           {biography && (
             <div className="mt-6">
               <h2 className="text-xl font-semibold mb-3">Biography</h2>
-              <p className="text-gray-300 leading-relaxed">
-                {biography}
-              </p>
+              <p className="text-gray-300 leading-relaxed">{biography}</p>
             </div>
           )}
         </div>
@@ -72,8 +62,8 @@ const PersonLayout = ({
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {credits.map((credit) => (
             <div key={credit.credit_id} className="group">
-              <a 
-                href={`/movie/${credit.id}`}
+              <Link
+                to={`/movie/${credit.id}`}
                 className="block hover:opacity-80 transition-opacity"
               >
                 <div className="aspect-[2/3] rounded-lg overflow-hidden shadow-sm">
@@ -94,18 +84,17 @@ const PersonLayout = ({
                       <span className="block truncate">{credit.character}</span>
                     )}
                     {credit.release_date && (
-                      <span>
-                        {new Date(credit.release_date).getFullYear()}
-                      </span>
+                      <span>{new Date(credit.release_date).getFullYear()}</span>
                     )}
                   </p>
                 </div>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
       </div>
-      
+
+      {/* Renderiza elementos filhos, se houver */}
       {children}
     </div>
   );

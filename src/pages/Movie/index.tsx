@@ -2,17 +2,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Movie, Credits } from "../../types";
 import SystemLayout from "../../components/Layout/SystemLayout";
-import StarRating from "../../components/MoviePage/StarComponent";
-import { MovieSidebar } from "../../components/MoviePage/DetailsComponent";
-import { Cast } from "../../components/MoviePage/CastComponent";
-import TMDBRating from "../../components/MoviePage/TMDBComponent";
-import MovieComponent from "../../components/MoviePage/MovieComponent";
+import MovieSidebar from "../../components/MovieDetailsComponent";
+import Cast from "../../components/CastCardComponent";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<Movie | null>(null);
   const [credits, setCredits] = useState<Credits | null>(null);
-  const [rating, setRating] = useState<number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +45,7 @@ const MovieDetails = () => {
   return (
     <SystemLayout>
       {/* Seção de Backdrop */}
-      <div className="relative w-full h-[500px] -mt-16">
+      <div className="relative w-full h-[500px] -mt-16 ">
         <div className="absolute inset-0">
           <img
             src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}`}
@@ -61,10 +57,8 @@ const MovieDetails = () => {
       </div>
 
       {/* Conteúdo Principal */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-8">
-        {/* Em desktop (md para cima) usamos grid com colunas fixas; em mobile, empilhamos */}
+      <div className="container mx-auto px-36 py-8">
         <div className="grid grid-cols-1 md:grid-cols-[300px_600px_250px] gap-8">
-          {/* Coluna 1: Poster, diretor e detalhes */}
           <div>
             <MovieSidebar movie={movie} credits={credits} />
           </div>
@@ -99,17 +93,6 @@ const MovieDetails = () => {
               {movie.overview}
             </p>
             <Cast cast={credits.cast.slice(0, 100)} />
-          </div>
-
-          {/* Coluna 3: Avaliação do usuário e nota do TMDB */}
-          <div className="flex flex-col gap-6 mt-10 md:mt-20">
-            <div className="bg-base-200 p-10 rounded text-center">
-              <h2 className="text-2xl font-bold mb-4">Avalie</h2>
-              <StarRating rating={rating} setRating={setRating}/>
-            </div>
-            <div className=" p-4 rounded text-center">
-              <TMDBRating movie={movie} />
-            </div>
           </div>
         </div>
       </div>

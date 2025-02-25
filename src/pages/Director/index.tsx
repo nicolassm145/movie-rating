@@ -21,8 +21,6 @@ const DirectorPage = () => {
           directorRes.json(),
           creditsRes.json()
         ]);
-
-        // Filtrar apenas créditos de direção
         const directingCredits = creditsData.crew.filter(
           (credit: MovieCredit) => credit.job === "Director"
         );

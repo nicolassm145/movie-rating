@@ -1,20 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 import TitleComponent from "../components/TitleComponent";
-import Home from "../pages/Home";
-import Login from "../pages/Auth/Login";
-import Register from "../pages/Auth/Register";
-import About from "../pages/About";
-import Profile from "../pages/Profile";
+import HomePage from "../pages/Home";
 import SearchPage from "../pages/Search";
 import MovieDetails from "../pages/Movie";
 import ActorPage from "../pages/Actor";
+import DirectorPage from "../pages/Director";
+import YearPage from "../pages/Year";
+import LoginPage from "../pages/Auth/Login";
+import RegisterPage from "../pages/Auth/Register";
+import ProfilePage from "../pages/Profile";
+import AboutPage from "../pages/About";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
-        <Home />
+        <HomePage />
         <TitleComponent title="Movie-Rating" />
       </>
     ),
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
     path: "/login",
     element: (
       <>
-        <Login />
+        <LoginPage />
         <TitleComponent title="Login" />
       </>
     ),
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: (
       <>
-        <Register />
+        <RegisterPage />
         <TitleComponent title="Register" />
       </>
     ),
@@ -41,7 +43,7 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <>
-        <Profile />
+        <ProfilePage />
         <TitleComponent title="Profile" />
       </>
     ),
@@ -50,7 +52,7 @@ const router = createBrowserRouter([
     path: "/about",
     element: (
       <>
-        <About />
+        <AboutPage />
         <TitleComponent title="About" />
       </>
     ),
@@ -69,7 +71,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <MovieDetails />
-        <TitleComponent title="Movie Details" />
+        <TitleComponent title="Movie" />
       </>
     ),
   },
@@ -78,10 +80,28 @@ const router = createBrowserRouter([
     element: (
       <>
         <ActorPage />
-        <TitleComponent title="Actor Details" />
+        <TitleComponent title="Actor" />
       </>
     ),
-  }
+  },
+  {
+    path: "/director/:id",
+    element: (  
+      <>
+        <DirectorPage />
+        <TitleComponent title="Director" />
+      </>
+    ),
+  },
+  {	
+    path: "/year/:year",
+    element: (
+      <>
+        <YearPage />
+        <TitleComponent title="Year" />
+      </>
+    ),
+  },
 ]);
 
 export default router;

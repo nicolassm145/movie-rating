@@ -3,6 +3,7 @@ export interface CastMember {
     name: string;
     character: string;
     profile_path?: string;
+    credit_id: string;
   }
   
   export interface CrewMember {
@@ -10,10 +11,10 @@ export interface CastMember {
     name: string;
     job: string;
     profile_path?: string;
+    credit_id: string;
   }
   
   export interface Credits {
     cast: CastMember[];
     crew: CrewMember[];
   }
-  

@@ -1,32 +1,16 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Movie, Credits } from "../../types";
-import SystemLayout from "../../components/Layout/SystemLayout";
-import MovieSidebar from "../../components/MovieDetailsComponent";
-import Cast from "../../components/CastCardComponent";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Movie, Credits } from '../../types';
+import MediaSidebar from '../../components/Layout/SidebarLayout';
+import DetailsLayout from '../../components/Layout/DetailsLayout';
+import SystemLayout from '../../components/Layout/SystemLayout';
+import MediaInfo from '../../components/MediaInfoComponent';
+import MediaCredits from '../../components/MediaCreditsComponent';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<Movie | null>(null);
   const [credits, setCredits] = useState<Credits | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const movieResponse = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=${
-            import.meta.env.VITE_TMDB_KEY
-          }&append_to_response=credits`
-        );
-        const movieData = await movieResponse.json();
-        setMovie(movieData);
-        setCredits(movieData.credits);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [id]);
 
   const formatRuntime = (minutes: number) => {
     const hours = Math.floor(minutes / 60);
@@ -34,68 +18,61 @@ const MovieDetails = () => {
     return `${hours}h ${remainingMinutes}m`;
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${
+            import.meta.env.VITE_TMDB_KEY
+          }&append_to_response=credits`
+        );
+        const data = await response.json();
+        setMovie(data);
+        setCredits(data.credits);
+      } catch (error) {
+        console.error('Error fetching movie data:', error);
+      }
+    };
+    fetchData();
+  }, [id]);
   if (!movie || !credits) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        Loading...
-      </div>
+      <SystemLayout>
+        <div className="min-h-screen flex items-center justify-center">
+          Loading...
+        </div>
+      </SystemLayout>
     );
   }
 
+ 
+  const runtime = movie.runtime ? formatRuntime(movie.runtime) : 'N/A';
+
   return (
     <SystemLayout>
-      {/* Seção de Backdrop */}
-      <div className="relative w-full h-[500px] -mt-16 ">
-        <div className="absolute inset-0">
-          <img
-            src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}`}
-            alt={movie.title}
-            className="w-full h-full object-cover"
+      <DetailsLayout backdropPath={movie.backdrop_path || ''}>
+        <div>
+          <MediaSidebar media={movie} credits={credits} mediaType="movie" />
+        </div>
+
+        <div>
+        
+          <MediaInfo
+            title={movie.title}
+            year={movie.release_date?.split('-')[0]}
+            genres={movie.genres}
+            runtime={runtime}
+            tagline={movie.tagline}
+            overview={movie.overview}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-100/70 to-base-100" />
-        </div>
-      </div>
 
-      {/* Conteúdo Principal */}
-      <div className="container mx-auto px-36 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-[300px_600px_250px] gap-8">
-          <div>
-            <MovieSidebar movie={movie} credits={credits} />
-          </div>
-
-          {/* Coluna 2: Título, gêneros, tagline, overview e cast */}
-          <div>
-            <div className="mb-6">
-              <h1 className="text-4xl font-bold">
-                {movie.title} ({movie.release_date?.split("-")[0]})
-              </h1>
-              <div className="flex items-center gap-3 flex-wrap mt-2 text-lg">
-                {movie.genres?.map((genre) => (
-                  <span
-                    key={genre.id}
-                    className="badge badge-outline badge-sm border-gray-400 text-lg"
-                  >
-                    {genre.name}
-                  </span>
-                ))}
-                <h2 className="text-gray-400">•</h2>
-                <h2 className="text-gray-400 font-bold text-xl">
-                  {movie.runtime ? formatRuntime(movie.runtime) : "N/A"}
-                </h2>
-              </div>
-            </div>
-            {movie.tagline && (
-              <p className="text-xl italic font-bold text-gray-400 mb-4">
-                {movie.tagline}
-              </p>
-            )}
-            <p className="leading-relaxed text-gray-400 mb-20">
-              {movie.overview}
-            </p>
-            <Cast cast={credits.cast.slice(0, 100)} />
-          </div>
+        
+          <MediaCredits
+            cast={credits.cast}
+            crew={credits.crew}
+          />
         </div>
-      </div>
+      </DetailsLayout>
     </SystemLayout>
   );
 };

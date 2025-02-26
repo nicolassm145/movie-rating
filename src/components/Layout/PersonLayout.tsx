@@ -16,7 +16,6 @@ const PersonLayout = ({ name, profilePath, birthday, deathday, placeOfBirth, bio
 }: PersonLayoutProps) => {
   return (
     <div className="container mx-auto px-36 py-8">
-      {/* Cabeçalho */}
       <div className="flex flex-col md:flex-row gap-8 mb-8">
         <div className="w-full md:w-1/4">
           <img
@@ -56,7 +55,6 @@ const PersonLayout = ({ name, profilePath, birthday, deathday, placeOfBirth, bio
         </div>
       </div>
 
-      {/* Filmografia */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Filmography</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -93,8 +91,6 @@ const PersonLayout = ({ name, profilePath, birthday, deathday, placeOfBirth, bio
           ))}
         </div>
       </div>
-
-      {/* Renderiza elementos filhos, se houver */}
       {children}
     </div>
   );

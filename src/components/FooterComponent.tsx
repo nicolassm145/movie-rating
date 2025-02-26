@@ -1,7 +1,7 @@
 const FooterComponent = () => {
   return (
     <footer className="bottom-0 body-font font-robot w-full max-h-12 px-36">
-      <div className="container py-2 flex justify-between mx-auto relative">
+      <div className=" container py-2 flex justify-between mx-auto relative">
         <span>
           <a href="/about" className="text-sm text-gray-500 hover:text-white transition-all duration-500 font-roboto-mono">
             About

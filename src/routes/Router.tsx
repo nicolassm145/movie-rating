@@ -3,6 +3,7 @@ import TitleComponent from "../components/TitleComponent";
 import HomePage from "../pages/Home";
 import SearchPage from "../pages/Search";
 import MovieDetails from "../pages/Movie";
+import TvshowDetails from "../pages/Tvshow";
 import ActorPage from "../pages/Actor";
 import DirectorPage from "../pages/Director";
 import YearPage from "../pages/Year";
@@ -72,6 +73,15 @@ const router = createBrowserRouter([
       <>
         <MovieDetails />
         <TitleComponent title="Movie" />
+      </>
+    ),
+  },
+  {
+    path: "/tv/:id",
+    element: (
+      <>
+        <TvshowDetails />
+        <TitleComponent title="TV Show" />
       </>
     ),
   },

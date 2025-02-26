@@ -17,3 +17,12 @@ export interface Movie extends Media {
   runtime?: number;
   credits?: Credits;
 }
+
+export interface MovieCredit {
+  credit_id: string;
+  id: number;
+  poster_path: string | null;
+  title: string;
+  character: string;
+  release_date: string;
+}

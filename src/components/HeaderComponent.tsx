@@ -11,7 +11,7 @@ const HeaderComponent = () => {
   };
   return (
     <nav className="bg-transparent px-36">
-      <div className="flex items-center py-1">
+      <div className="flex items-center py-2">
         <a href="/" className="flex items-center space-x-2">
           <img src="/icon.svg" className="h-12 w-12 " alt="Movie-Rating" />
           <span className="self-center text-2xl font-bold font-roboto-mono-700 text-white">
@@ -33,13 +33,13 @@ const HeaderComponent = () => {
                 </button>
               </a>     
               
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="dropdown dropdown-end ">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
                   <div className="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center p-1">
                     <UserIcon className="w-full h-full text-gray-300" />
                   </div>
                 </label>
-                <ul tabIndex={0} className="mt-3 z-[1] p-5 shadow menu menu-sm dropdown-content bg-base-100 rounded w-40 border border-neutral" >
+                <ul tabIndex={0} className="mt-3 z-[1] p-5 shadow menu menu-sm dropdown-content bg-base-100 rounded-[10px]  w-40 border border-neutral " >
                   <li>
                     <a href="/profile" className="flex items-center gap-2 p-2 hover:bg-neutral">
                       <UserIcon className="w-5 h-5 text-gray-300" />

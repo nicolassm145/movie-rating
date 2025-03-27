@@ -19,6 +19,7 @@ export interface Movie extends Media {
 }
 
 export interface MovieCredit {
+  job: any;
   credit_id: string;
   id: number;
   poster_path: string | null;

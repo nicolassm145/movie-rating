@@ -2,6 +2,7 @@ import { Media } from "./media";
 import { Genre } from "./genre";
 
 export interface TVShow extends Media {
+  created_by: any;
   name: string;
   backdrop_path: string;
   poster_path: string;

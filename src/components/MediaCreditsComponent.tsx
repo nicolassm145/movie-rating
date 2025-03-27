@@ -50,7 +50,7 @@ const MediaCredits: React.FC<MediaCreditsProps> = ({ cast, crew }) => {
             {cast.map((actor) => (
               <Link
                 key={actor.credit_id}
-                to={`/actor/${actor.id}`}
+                to={`/credits/${actor.id}`}
                 className="w-32 flex-shrink-0 hover:opacity-80 transition-opacity"
               >
                 <div className="aspect-[2/3] rounded-lg overflow-hidden shadow-sm">
@@ -82,7 +82,7 @@ const MediaCredits: React.FC<MediaCreditsProps> = ({ cast, crew }) => {
             {filteredCrew.map((member) => (
               <Link
                 key={member.credit_id}
-                to={`/actor/${member.id}`}
+                to={`/credits/${member.id}`}
                 className="w-32 flex-shrink-0 hover:opacity-80 transition-opacity"
               >
                 <div className="aspect-[2/3] rounded-lg overflow-hidden shadow-sm">

@@ -18,3 +18,21 @@ export interface CastMember {
     cast: CastMember[];
     crew: CrewMember[];
   }
+  
+  export interface PersonCombinedCredits {
+    id: number;
+    cast: MovieCredit[];
+    crew: MovieCredit[];
+  }
+  
+  export interface PersonDetails{ 
+    birthday: string;
+    known_for_department: string;
+    deathday: string | null;
+    id: number;
+    name: string;
+    also_known_as: string[];
+    profile_path: string | null;
+    biography: string;
+    place_of_birth: string;
+  }

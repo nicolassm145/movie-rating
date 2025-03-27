@@ -4,13 +4,13 @@ import HomePage from "../pages/Home";
 import SearchPage from "../pages/Search";
 import MovieDetails from "../pages/Movie";
 import TvshowDetails from "../pages/Tvshow";
-import ActorPage from "../pages/Actor";
-import DirectorPage from "../pages/Director";
 import YearPage from "../pages/Year";
 import LoginPage from "../pages/Auth/Login";
 import RegisterPage from "../pages/Auth/Register";
 import ProfilePage from "../pages/Profile";
 import AboutPage from "../pages/About";
+import NotFound from "../pages/NotFound";
+import CreditsPage from "../pages/Credits";
 
 const router = createBrowserRouter([
   {
@@ -86,29 +86,29 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/actor/:id",
-    element: (
-      <>
-        <ActorPage />
-        <TitleComponent title="Actor" />
-      </>
-    ),
-  },
-  {
-    path: "/director/:id",
-    element: (  
-      <>
-        <DirectorPage />
-        <TitleComponent title="Director" />
-      </>
-    ),
-  },
-  {	
     path: "/year/:year",
     element: (
       <>
         <YearPage />
         <TitleComponent title="Year" />
+      </>
+    ),
+  },
+  {
+    path: "*",
+    element: (
+      <>
+        <NotFound />
+        <TitleComponent title="NotFound" />
+      </>
+    ),
+  },
+  {
+    path: "/credits/:id",
+    element: (
+      <>
+        <CreditsPage />
+        <TitleComponent title="Credits" />
       </>
     ),
   },

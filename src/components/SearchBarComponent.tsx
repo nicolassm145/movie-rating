@@ -10,12 +10,12 @@ const SearchBarComponent = ({ onSearch }: { onSearch: (query: string) => void })
   };
 
   return (
-    <div className="relative bg-gray-600 rounded-full w-60">
+    <div className="relative   w-60">
       <form onSubmit={handleSubmit}>
         <div className="absolute left-3 top-1/2 -translate-y-1/2 ">
           <MagnifyingGlassIcon className="w-5 h-5 text-gray-00"/>
         </div>
-        <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search" className="input input-sm w-full pl-10 bg-opacity-20 bg-gray-800 focus:bg-opacity-70 transition-all border-none rounded-full placeholder:text-gray-400 font-roboto-mono"/>
+        <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search" className=" rounded-[10px] input input-sm w-full pl-10 bg-opacity-60 bg-gray-800 focus:bg-opacity-70 transition-all  rounded-full placeholder:text-gray-400 font-roboto-mono"/>
       </form>
     </div>
   );

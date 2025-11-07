@@ -1,4 +1,4 @@
-# 🎬 Site de Avaliação de Filmes
+# Site de Avaliação de Filmes
 
 > **Projeto de Estudo** - Este é um projeto desenvolvido para fins de aprendizado e prática de desenvolvimento frontend com React e TypeScript.
 

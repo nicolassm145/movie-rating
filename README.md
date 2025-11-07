@@ -1,6 +1,8 @@
-# Site de Avaliação de Filmes
+# 🎬 Site de Avaliação de Filmes
 
 > **Projeto de Estudo** - Este é um projeto desenvolvido para fins de aprendizado e prática de desenvolvimento frontend com React e TypeScript.
+
+**[Ver Demonstração](https://onlyfrontend-movie-rating.vercel.app/)**
 
 Uma plataforma moderna e responsiva para navegação de filmes e séries de TV, construída com React e TypeScript. Navegue por conteúdos em alta, pesquise seus filmes e séries favoritas e explore informações detalhadas sobre elenco, equipe e avaliações.
 
